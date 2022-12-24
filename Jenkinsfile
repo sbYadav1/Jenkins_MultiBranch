@@ -36,7 +36,7 @@ pipeline {
     }
   
     stage('deploy_dev') {
-      when { branch 'develop'
+      when { branch 'dev'
       beforeAgent true}
       agent any
         steps {
