@@ -50,6 +50,21 @@ pipeline {
           """
         }
     }
+    stage('deploy_qa-1') {
+      when { branch 'qa-1'
+      beforeAgent true}
+      agent any
+        steps {
+          dir("/var/www/html")
+          {
+            unstash "maven-build"
+          }
+          sh """
+          cd /var/www/html/
+          jar -xvf webapp.war
+          """
+        }
+    }
   
     stage('deploy_prod') {
       when { branch 'master'
