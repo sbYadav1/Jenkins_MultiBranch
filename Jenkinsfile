@@ -79,6 +79,7 @@ pipeline {
              unstash "maven-build"
           }
           sh """
+          mkdir -p /var/www/html
           cd /var/www/html/
           jar -xvf webapp.war
           """
