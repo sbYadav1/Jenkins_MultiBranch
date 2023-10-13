@@ -78,7 +78,7 @@ pipeline {
           whoami
           pwd
           ls -lrth
-          "
+          """
           dir("/var/www/html")
           {
              unstash "maven-build"
